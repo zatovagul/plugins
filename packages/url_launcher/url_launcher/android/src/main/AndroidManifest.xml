@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="io.flutter.plugins.urllauncher">
+  package="io.flutter.plugins.urllauncherwithChrome">
   <application>
-    <activity android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+    <activity android:name="io.flutter.plugins.urllauncherwithChrome.WebViewActivity"
       android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
       android:exported="false"/>
   </application>

@@ -1,4 +1,4 @@
-group 'io.flutter.plugins.urllauncher'
+group 'io.flutter.plugins.urllauncherwithChrome'
 version '1.0-SNAPSHOT'
 
 buildscript {

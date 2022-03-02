@@ -1,4 +1,4 @@
-package io.flutter.plugins.urllauncher;
+package io.flutter.plugins.urllauncherwithChrome;
 
 import android.util.Log;
 import androidx.annotation.NonNull;

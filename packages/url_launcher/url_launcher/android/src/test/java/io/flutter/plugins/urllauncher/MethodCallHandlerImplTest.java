@@ -1,4 +1,4 @@
-package io.flutter.plugins.urllauncher;
+package io.flutter.plugins.urllauncherwithChrome;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;

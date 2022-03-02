@@ -6,7 +6,7 @@ package io.flutter.plugins.urllauncherexample;
 
 import android.os.Bundle;
 import dev.flutter.plugins.integration_test.IntegrationTestPlugin;
-import io.flutter.plugins.urllauncher.UrlLauncherPlugin;
+import io.flutter.plugins.urllauncherwithChrome.UrlLauncherPlugin;
 
 @SuppressWarnings("deprecation")
 public class EmbeddingV1Activity extends io.flutter.app.FlutterActivity {

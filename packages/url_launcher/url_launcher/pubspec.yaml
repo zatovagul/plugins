@@ -2,13 +2,13 @@ name: url_launcher_with_chrome
 description: Flutter plugin for launching a URL on Android and iOS. Supports
   web, phone, SMS, and email schemes.
 homepage: https://github.com/flutter/plugins/tree/master/packages/url_launcher/url_launcher
-version: 5.7.8
+version: 5.7.9
 
 flutter:
   plugin:
     platforms:
       android:
-        package: io.flutter.plugins.urllauncher
+        package: io.flutter.plugins.urllauncherwithChrome
         pluginClass: UrlLauncherPlugin
       ios:
         pluginClass: FLTURLLauncherPlugin

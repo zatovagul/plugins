@@ -1,4 +1,4 @@
-package io.flutter.plugins.urllauncher;
+package io.flutter.plugins.urllauncherwithChrome;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
