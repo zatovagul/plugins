@@ -110,6 +110,56 @@ Future<bool> launch(
   return result;
 }
 
+Future<bool> launchWithChrome(
+    String urlString, {
+      bool forceSafariVC,
+      bool forceWebView,
+      bool enableJavaScript,
+      bool enableDomStorage,
+      bool universalLinksOnly,
+      Map<String, String> headers,
+      Brightness statusBarBrightness,
+      String webOnlyWindowName,
+    }) async {
+  assert(urlString != null);
+  final Uri url = Uri.parse(urlString.trimLeft());
+  final bool isWebURL = url.scheme == 'http' || url.scheme == 'https';
+  if ((forceSafariVC == true || forceWebView == true) && !isWebURL) {
+    throw PlatformException(
+        code: 'NOT_A_WEB_SCHEME',
+        message: 'To use webview or safariVC, you need to pass'
+            'in a web URL. This $urlString is not a web URL.');
+  }
+
+  /// [true] so that ui is automatically computed if [statusBarBrightness] is set.
+  bool previousAutomaticSystemUiAdjustment = true;
+  if (statusBarBrightness != null &&
+      defaultTargetPlatform == TargetPlatform.iOS) {
+    previousAutomaticSystemUiAdjustment =
+        WidgetsBinding.instance.renderView.automaticSystemUiAdjustment;
+    WidgetsBinding.instance.renderView.automaticSystemUiAdjustment = false;
+    SystemChrome.setSystemUIOverlayStyle(statusBarBrightness == Brightness.light
+        ? SystemUiOverlayStyle.dark
+        : SystemUiOverlayStyle.light);
+  }
+  final bool result = await UrlLauncherPlatform.instance.launchWithChrome(
+    urlString,
+    useSafariVC: forceSafariVC ?? isWebURL,
+    useWebView: forceWebView ?? false,
+    enableJavaScript: enableJavaScript ?? false,
+    enableDomStorage: enableDomStorage ?? false,
+    universalLinksOnly: universalLinksOnly ?? false,
+    headers: headers ?? <String, String>{},
+    webOnlyWindowName: webOnlyWindowName,
+  );
+  assert(previousAutomaticSystemUiAdjustment != null);
+  if (statusBarBrightness != null) {
+    WidgetsBinding.instance.renderView.automaticSystemUiAdjustment =
+        previousAutomaticSystemUiAdjustment;
+  }
+  return result;
+}
+
 /// Checks whether the specified URL can be handled by some app installed on the
 /// device.
 ///

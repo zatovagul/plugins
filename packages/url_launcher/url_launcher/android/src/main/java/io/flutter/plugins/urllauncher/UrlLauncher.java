@@ -83,6 +83,39 @@ class UrlLauncher {
     return LaunchStatus.OK;
   }
 
+  LaunchStatus launchWithChrome(
+          String url,
+          Bundle headersBundle,
+          boolean useWebView,
+          boolean enableJavaScript,
+          boolean enableDomStorage) {
+    if (activity == null) {
+      return LaunchStatus.NO_ACTIVITY;
+    }
+
+    Intent launchIntent;
+    if (useWebView) {
+      launchIntent =
+              WebViewActivity.createIntent(
+                      activity, url, enableJavaScript, enableDomStorage, headersBundle);
+    } else {
+      launchIntent =
+              new Intent(Intent.ACTION_VIEW)
+                      .setData(Uri.parse(url))
+                      .putExtra(Browser.EXTRA_HEADERS, headersBundle);
+      launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      launchIntent.setPackage("com.android.chrome");
+    }
+
+    try {
+      activity.startActivity(launchIntent);
+    } catch (ActivityNotFoundException e) {
+      return LaunchStatus.ACTIVITY_NOT_FOUND;
+    }
+
+    return LaunchStatus.OK;
+  }
+
   /** Closes any activities started with {@link #launch} {@code useWebView=true}. */
   void closeWebView() {
     applicationContext.sendBroadcast(new Intent(WebViewActivity.ACTION_CLOSE));

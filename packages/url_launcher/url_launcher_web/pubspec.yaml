@@ -14,7 +14,11 @@ flutter:
         fileName: url_launcher_web.dart
 
 dependencies:
-  url_launcher_platform_interface: ^1.0.9
+  url_launcher_platform_interface:
+    git:
+      url: https://github.com/zatovagul/plugins.git
+      ref: feature/launchWithCrome
+      path: packages/url_launcher/url_launcher_platform_interface
   flutter:
     sdk: flutter
   flutter_web_plugins:

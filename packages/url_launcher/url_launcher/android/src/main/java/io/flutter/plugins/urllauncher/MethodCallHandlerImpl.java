@@ -35,6 +35,9 @@ final class MethodCallHandlerImpl implements MethodCallHandler {
       case "launch":
         onLaunch(call, result, url);
         break;
+      case "launchWithChrome":
+        onLaunchWithChrome(call, result, url);
+        break;
       case "closeWebView":
         onCloseWebView(result);
         break;
@@ -97,6 +100,28 @@ final class MethodCallHandlerImpl implements MethodCallHandler {
           "ACTIVITY_NOT_FOUND",
           String.format("No Activity found to handle intent { %s }", url),
           null);
+    } else {
+      result.success(true);
+    }
+  }
+
+  private void onLaunchWithChrome(MethodCall call, Result result, String url){
+    final boolean useWebView = call.argument("useWebView");
+    final boolean enableJavaScript = call.argument("enableJavaScript");
+    final boolean enableDomStorage = call.argument("enableDomStorage");
+    final Map<String, String> headersMap = call.argument("headers");
+    final Bundle headersBundle = extractBundle(headersMap);
+
+    LaunchStatus launchStatus =
+            urlLauncher.launchWithChrome(url, headersBundle, useWebView, enableJavaScript, enableDomStorage);
+
+    if (launchStatus == LaunchStatus.NO_ACTIVITY) {
+      result.error("NO_ACTIVITY", "Launching a URL requires a foreground activity.", null);
+    } else if (launchStatus == LaunchStatus.ACTIVITY_NOT_FOUND) {
+      result.error(
+              "ACTIVITY_NOT_FOUND",
+              String.format("No Activity found to handle intent { %s }", url),
+              null);
     } else {
       result.success(true);
     }
