@@ -3,5 +3,5 @@
 // found in the LICENSE file.
 
 export 'src/link.dart' show Link;
-export 'package:url_launcher_platform_interface/link.dart'
+export 'package:url_launcher_with_chrome_platform_interface/link.dart'
     show FollowLink, LinkTarget, LinkWidgetBuilder;

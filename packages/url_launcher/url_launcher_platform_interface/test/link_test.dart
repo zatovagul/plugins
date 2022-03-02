@@ -9,7 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:url_launcher_platform_interface/link.dart';
+import 'package:url_launcher_with_chrome_platform_interface/link.dart';
 
 final MethodCodec _codec = const JSONMethodCodec();
 

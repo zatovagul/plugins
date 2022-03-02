@@ -10,8 +10,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter/services.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
-import 'package:url_launcher/link.dart';
-import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
+import 'package:url_launcher_with_chrome/link.dart';
+import 'package:url_launcher_with_chrome_platform_interface/url_launcher_platform_interface.dart';
 
 final MethodCodec _codec = const JSONMethodCodec();
 

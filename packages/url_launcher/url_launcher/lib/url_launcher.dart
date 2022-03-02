@@ -7,7 +7,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
+import 'package:url_launcher_with_chrome_platform_interface/url_launcher_platform_interface.dart';
 
 /// Parses the specified URL string and delegates handling of it to the
 /// underlying platform.

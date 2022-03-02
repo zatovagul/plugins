@@ -4,7 +4,7 @@ description: Demonstrates how to use the url_launcher plugin.
 dependencies:
   flutter:
     sdk: flutter
-  url_launcher:
+  url_launcher_with_chrome:
     path: ../
 
 dev_dependencies:
