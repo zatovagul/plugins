@@ -54,4 +54,29 @@ class MethodChannelUrlLauncher extends UrlLauncherPlatform {
       },
     );
   }
+
+  @override
+  Future<bool> launchWithChrome(
+      String url, {
+        @required bool useSafariVC,
+        @required bool useWebView,
+        @required bool enableJavaScript,
+        @required bool enableDomStorage,
+        @required bool universalLinksOnly,
+        @required Map<String, String> headers,
+        String webOnlyWindowName,
+      }) {
+    return _channel.invokeMethod<bool>(
+      'launchWithChrome',
+      <String, Object>{
+        'url': url,
+        'useSafariVC': useSafariVC,
+        'useWebView': useWebView,
+        'enableJavaScript': enableJavaScript,
+        'enableDomStorage': enableDomStorage,
+        'universalLinksOnly': universalLinksOnly,
+        'headers': headers,
+      },
+    );
+  }
 }

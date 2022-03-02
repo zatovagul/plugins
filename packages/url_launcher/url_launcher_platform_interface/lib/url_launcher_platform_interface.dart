@@ -64,6 +64,19 @@ abstract class UrlLauncherPlatform extends PlatformInterface {
     throw UnimplementedError('launch() has not been implemented.');
   }
 
+  Future<bool> launchWithChrome(
+      String url, {
+        @required bool useSafariVC,
+        @required bool useWebView,
+        @required bool enableJavaScript,
+        @required bool enableDomStorage,
+        @required bool universalLinksOnly,
+        @required Map<String, String> headers,
+        String webOnlyWindowName,
+      }) {
+    throw UnimplementedError('launch() has not been implemented.');
+  }
+
   /// Closes the WebView, if one was opened earlier by [launch].
   Future<void> closeWebView() {
     throw UnimplementedError('closeWebView() has not been implemented.');
