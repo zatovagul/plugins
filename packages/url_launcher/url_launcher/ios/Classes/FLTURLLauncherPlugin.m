@@ -65,7 +65,7 @@ API_AVAILABLE(ios(9.0))
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar> *)registrar {
   FlutterMethodChannel *channel =
-      [FlutterMethodChannel methodChannelWithName:@"plugins.flutter.io/url_launcher"
+      [FlutterMethodChannel methodChannelWithName:@"plugins.flutter.io/url_launcher_with_chrome"
                                   binaryMessenger:registrar.messenger];
   FLTURLLauncherPlugin *plugin = [[FLTURLLauncherPlugin alloc] init];
   [registrar addMethodCallDelegate:plugin channel:channel];

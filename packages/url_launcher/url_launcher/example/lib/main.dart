@@ -40,16 +40,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _launchInBrowser(String url) async {
     if (await canLaunch(url)) {
+      final u = "https://qr.nspk.ru/AD10001V18D523GQ95EAMAPM3KRP64JP?type=02&bank=100000000111&sum=100000&cur=RUB&crc=C127";
       await launch(
-        url,
+        u,
         forceSafariVC: false,
         forceWebView: false,
         headers: <String, String>{'my_header_key': 'my_header_value'},
       );
-      await launchWithChrome(url,
-        forceSafariVC: false,
-        forceWebView: false,
-        headers: <String, String>{'my_header_key': 'my_header_value'},);
+      // await launchWithChrome(u,
+      //   forceSafariVC: false,
+      //   forceWebView: false,
+      //   headers: <String, String>{'my_header_key': 'my_header_value'},);
     } else {
       throw 'Could not launch $url';
     }
