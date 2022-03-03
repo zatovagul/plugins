@@ -2,7 +2,7 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
 Pod::Spec.new do |s|
-  s.name             = 'url_launcher'
+  s.name             = 'url_launcher_with_chrome'
   s.version          = '0.0.1'
   s.summary          = 'Flutter plugin for launching a URL.'
   s.description      = <<-DESC
