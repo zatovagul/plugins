@@ -10,7 +10,7 @@ import 'package:meta/meta.dart' show required;
 import 'link.dart';
 import 'url_launcher_platform_interface.dart';
 
-const MethodChannel _channel = MethodChannel('plugins.flutter.io/url_launcher');
+const MethodChannel _channel = MethodChannel('plugins.flutter.io/url_launcher_with_chrome');
 
 /// An implementation of [UrlLauncherPlatform] that uses method channels.
 class MethodChannelUrlLauncher extends UrlLauncherPlatform {
